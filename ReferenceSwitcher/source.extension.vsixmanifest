@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+    <Identifier Id="39bf4245-64d8-4180-9c00-b8c809c29c4a">
+        <Name>Reference Switcher</Name>
+        <Author>Mark Kemper</Author>
+        <Version>1.0</Version>
+        <Description xml:space="preserve">Switches references from file to projects (and vice versa) references when adding projects. References are reverted when the project is removed.</Description>
+        <Locale>1033</Locale>
+        <InstalledByMsi>false</InstalledByMsi>
+        <SupportedProducts>
+            <VisualStudio Version="10.0">
+                <Edition>Ultimate</Edition>
+                <Edition>Premium</Edition>
+                <Edition>Pro</Edition>
+                <Edition>Express_All</Edition>
+            </VisualStudio>
+        </SupportedProducts>
+        <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.0" />
+    </Identifier>
+    <References>
+        <Reference Id="Microsoft.VisualStudio.MPF" MinVersion="10.0">
+            <Name>Visual Studio MPF</Name>
+        </Reference>
+    </References>
+    <Content>
+        <VsPackage>|%CurrentProject%;PkgdefProjectOutputGroup|</VsPackage>
+    </Content>
+</Vsix>
