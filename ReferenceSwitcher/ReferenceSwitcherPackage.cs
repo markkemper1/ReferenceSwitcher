@@ -3,13 +3,13 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.InteropServices;
 using System.ComponentModel.Design;
-using EnvDTE;
 using Microsoft.Win32;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Shell;
 using ReferenceSwitcher;
+
 
 namespace Microsoft.VSPackage1
 {
@@ -40,7 +40,7 @@ namespace Microsoft.VSPackage1
     [Guid(GuidList.guidVSPackage1PkgString)]
     public sealed class VSPackage1Package : Package
     {
-        private SolutionEvents solutionEvents;
+        private EnvDTE.SolutionEvents solutionEvents;
         private ReferenceHelper referenceHelper;
 
         public VSPackage1Package()
