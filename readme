@@ -1,1 +1,3 @@
 This is a visual studio extension that switches projects reference to file references (and vice versa) when a project is added or removed from the solution
+
+I only made it work for VS2012 and 2013 and did some tweaks. The work was done by Mark Kemper: https://github.com/markkemper1/ReferenceSwitcher
