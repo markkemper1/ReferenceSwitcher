@@ -214,7 +214,7 @@ namespace ReferenceSwitcher
 
                 foreach (Reference reference in vsProject.References)
                 {
-                    if (reference.Path.Contains(assemblyName))
+                    if (Path.GetFileNameWithoutExtension(reference.Path).Equals(assemblyName))
                     {
                         changes.Add(new ProjectReferenceToAdd
                         {
