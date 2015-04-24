@@ -34,7 +34,7 @@ namespace ReferenceSwitcher
             StringBuilder sb = new StringBuilder();
             foreach (var item in changes)
             {
-                sb.AppendFormat("{0} will refer to: {1}\n", item.Project.Project.Name, item.ProjectToReference.Name);
+                sb.AppendFormat("Change {0} reference to {1} (Make it a project reference)\n", item.Project.Project.Name, item.ProjectToReference.Name);
             }
 
             if (!changes.Any())
@@ -48,7 +48,21 @@ namespace ReferenceSwitcher
             foreach (var item in changes)
             {
                 item.Reference.Remove();
-                item.Project.References.AddProject(item.ProjectToReference);
+	            try
+	            {
+		            item.Project.References.AddProject(item.ProjectToReference);
+	            }
+	            catch (Exception ex)
+	            {
+		            Trace.Write(ex.ToString());
+					
+					if(!AskUserToProceed(String.Format("Exceptional! We couldn't create a project reference from {0} to {1}",item.Project.Project.Name, item.ProjectToReference.Name),  ex.Message + "\n\n Click Yes or NO (I don't care)"))
+						return;
+
+		            Debugger.Break();
+		            throw;
+	            }
+	            
             }
         }
 
@@ -93,7 +107,7 @@ namespace ReferenceSwitcher
             StringBuilder sb = new StringBuilder();
             foreach (var item in workToDo)
             {
-                sb.AppendFormat("{0} will refer back to: {1}\n\n", item.ProjectNeedingReference.Name, ToRelative(item.FilePath, item.ProjectNeedingReference.FullName));
+                sb.AppendFormat("Switch {0} to refer back to a file reference: {1}\n\n", item.ProjectNeedingReference.Name, ToRelative(item.FilePath, item.ProjectNeedingReference.FullName));
             }
 
             if (workToDo.Count == 0)
@@ -214,6 +228,10 @@ namespace ReferenceSwitcher
 
                 foreach (Reference reference in vsProject.References)
                 {
+					
+					//If this project already has a project reference to the project being added then we don't need to do anything.
+					if(reference.SourceProject != null && projectAdded == reference.SourceProject) break;
+
                     if (Path.GetFileNameWithoutExtension(reference.Path).Equals(assemblyName))
                     {
                         changes.Add(new ProjectReferenceToAdd

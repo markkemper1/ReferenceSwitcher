@@ -3,7 +3,7 @@
     <Identifier Id="39bf4245-64d8-4180-9c00-b8c809c29c4a">
         <Name>Reference Switcher</Name>
         <Author>Mark Kemper</Author>
-        <Version>1.2.0</Version>
+        <Version>1.2.1</Version>
         <Description xml:space="preserve">Switches references from file to projects (and vice versa) references when adding projects. References are reverted when the project is removed.</Description>
         <Locale>1033</Locale>
         <InstalledByMsi>false</InstalledByMsi>
