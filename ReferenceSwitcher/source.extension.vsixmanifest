@@ -3,7 +3,7 @@
     <Identifier Id="39bf4245-64d8-4180-9c00-b8c809c29c4a">
         <Name>Reference Switcher</Name>
         <Author>Mark Kemper</Author>
-        <Version>1.2.1</Version>
+        <Version>1.3</Version>
         <Description xml:space="preserve">Switches references from file to projects (and vice versa) references when adding projects. References are reverted when the project is removed.</Description>
         <Locale>1033</Locale>
         <InstalledByMsi>false</InstalledByMsi>
@@ -23,8 +23,13 @@
               <Edition>Premium</Edition>
               <Edition>Pro</Edition>
             </VisualStudio>
+          <VisualStudio Version="14.0">
+            <Edition>Ultimate</Edition>
+            <Edition>Premium</Edition>
+            <Edition>Pro</Edition>
+          </VisualStudio>
         </SupportedProducts>
-        <SupportedFrameworkRuntimeEdition MinVersion="4.5" MaxVersion="4.5" />
+        <SupportedFrameworkRuntimeEdition MinVersion="4.5" />
     </Identifier>
     <References>
         <Reference Id="Microsoft.VisualStudio.MPF" MinVersion="10.0">
